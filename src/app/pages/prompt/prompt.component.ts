@@ -4,6 +4,7 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RagService } from '../../core/rag.service';
+import { AuthService } from '../../core/auth.service';
 
 @Component({
   selector: 'app-prompt',
@@ -14,6 +15,7 @@ import { RagService } from '../../core/rag.service';
 })
 export class PromptComponent {
   private ragService = inject(RagService);
+  auth = inject(AuthService);
 
   question = '';
   answer = '';

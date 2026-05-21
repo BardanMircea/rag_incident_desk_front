@@ -20,5 +20,6 @@
 
     <div class="success" *ngIf="message">{{ message }}</div>
     <div class="error" *ngIf="error">{{ error }}</div>
+    <button class="logout" (click)="auth.logout()">Déconnexion</button>
   </section>
 </div>

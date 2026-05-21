@@ -1,0 +1,27 @@
+<!-- register.component.html -->
+
+<div class="auth-page">
+  <div class="card">
+    <h1>Inscription</h1>
+    <p>Crée un compte pour accéder à l’application.</p>
+
+    <input [(ngModel)]="email" type="email" placeholder="Email" />
+    <input [(ngModel)]="password" type="password" placeholder="Mot de passe" />
+
+    <select [(ngModel)]="role">
+      <option value="USER">Utilisateur</option>
+      <option value="ADMIN">Administrateur</option>
+    </select>
+
+    <button (click)="register()" [disabled]="loading || !email || !password">
+      {{ loading ? "Création..." : "Créer le compte" }}
+    </button>
+
+    <p class="error" *ngIf="error">{{ error }}</p>
+
+    <p class="link">
+      Déjà un compte ?
+      <a routerLink="/login">Se connecter</a>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<!-- login.component.html -->
+
+<div class="auth-page">
+  <div class="card">
+    <h1>Connexion</h1>
+    <p>Connecte-toi pour accéder à l’assistant RAG.</p>
+
+    <input [(ngModel)]="email" type="email" placeholder="Email" />
+    <input [(ngModel)]="password" type="password" placeholder="Mot de passe" />
+
+    <button (click)="login()" [disabled]="loading || !email || !password">
+      {{ loading ? "Connexion..." : "Se connecter" }}
+    </button>
+
+    <p class="error" *ngIf="error">{{ error }}</p>
+
+    <p class="link">
+      Pas encore de compte ?
+      <a routerLink="/register">Créer un compte</a>
+    </p>
+  </div>
+</div>
