@@ -12,7 +12,7 @@ export interface AskResponse {
 })
 export class RagService {
   private http = inject(HttpClient);
-  private apiUrl = 'http://localhost:8081/api/rag';
+  private apiUrl = '/api/rag';
 
   ask(question: string) {
     return this.http.post<AskResponse>(`${this.apiUrl}/ask`, {

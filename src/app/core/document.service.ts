@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DocumentService {
   private http = inject(HttpClient);
-  private apiUrl = 'http://localhost:8081/api/admin/documents';
+  private apiUrl = '/api/admin/documents';
 
   upload(file: File) {
     const formData = new FormData();
