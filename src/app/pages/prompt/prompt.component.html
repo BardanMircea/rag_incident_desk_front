@@ -1,0 +1,27 @@
+<!-- src/app/pages/prompt/prompt.component.html -->
+
+<div class="page">
+  <section class="card">
+    <h1>Assistant RAG</h1>
+    <p>Pose une question sur la documentation interne.</p>
+
+    <textarea
+      [(ngModel)]="question"
+      placeholder="Ex: Comment résoudre une erreur 504 sur le load balancer ?"
+    >
+    </textarea>
+
+    <button (click)="ask()" [disabled]="loading || !question.trim()">
+      {{ loading ? "Recherche en cours..." : "Demander" }}
+    </button>
+
+    <div class="error" *ngIf="error">
+      {{ error }}
+    </div>
+
+    <div class="answer" *ngIf="answer">
+      <h2>Réponse</h2>
+      <p>{{ answer }}</p>
+    </div>
+  </section>
+</div>
