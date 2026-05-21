@@ -15,14 +15,19 @@
       {{ loading ? "Recherche en cours..." : "Demander" }}
     </button>
 
-    <div class="error" *ngIf="error">
-      {{ error }}
-    </div>
+    @if (error) {
+      <div class="error">
+        {{ error }}
+      </div>
+    }
 
-    <div class="answer" *ngIf="answer">
-      <h2>Réponse</h2>
-      <p>{{ answer }}</p>
-    </div>
+    @if (answer) {
+      <div class="answer">
+        <h2>Réponse</h2>
+        <p>{{ answer }}</p>
+      </div>
+    }
+
     <button class="logout" (click)="auth.logout()">Déconnexion</button>
   </section>
 </div>
