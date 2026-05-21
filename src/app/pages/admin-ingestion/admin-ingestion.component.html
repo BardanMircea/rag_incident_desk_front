@@ -18,8 +18,14 @@
       {{ loading ? "Ingestion en cours..." : "Uploader le document" }}
     </button>
 
-    <div class="success" *ngIf="message">{{ message }}</div>
-    <div class="error" *ngIf="error">{{ error }}</div>
+    @if (message) {
+      <div class="success">{{ message }}</div>
+    }
+
+    @if (error) {
+      <div class="error">{{ error }}</div>
+    }
+
     <button class="logout" (click)="auth.logout()">Déconnexion</button>
   </section>
 </div>
