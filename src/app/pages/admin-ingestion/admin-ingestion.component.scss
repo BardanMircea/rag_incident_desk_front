@@ -1,0 +1,58 @@
+/* src/app/pages/admin-ingestion/admin-ingestion.component.scss */
+
+.page {
+  min-height: 100vh;
+  background: #f4f6fb;
+  display: flex;
+  justify-content: center;
+  padding: 48px 24px;
+}
+
+.card {
+  width: 100%;
+  max-width: 700px;
+  background: white;
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+}
+
+.upload-box {
+  margin-top: 24px;
+  display: block;
+  border: 2px dashed #94a3b8;
+  border-radius: 20px;
+  padding: 36px;
+  text-align: center;
+  cursor: pointer;
+  background: #f8fafc;
+}
+
+.upload-box input {
+  display: none;
+}
+
+button {
+  margin-top: 24px;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 999px;
+  background: #16a34a;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:disabled {
+  background: #94a3b8;
+}
+
+.success {
+  margin-top: 20px;
+  color: #15803d;
+}
+
+.error {
+  margin-top: 20px;
+  color: #dc2626;
+}

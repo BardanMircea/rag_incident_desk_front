@@ -1,0 +1,24 @@
+<!-- src/app/pages/admin-ingestion/admin-ingestion.component.html -->
+
+<div class="page">
+  <section class="card">
+    <h1>Ingestion documentaire</h1>
+    <p>Ajoute un PDF à la base de connaissances RAG.</p>
+
+    <label class="upload-box">
+      <input
+        type="file"
+        accept="application/pdf"
+        (change)="onFileSelected($event)"
+      />
+      <span>{{ selectedFile?.name || "Choisir un fichier PDF" }}</span>
+    </label>
+
+    <button (click)="upload()" [disabled]="!selectedFile || loading">
+      {{ loading ? "Ingestion en cours..." : "Uploader le document" }}
+    </button>
+
+    <div class="success" *ngIf="message">{{ message }}</div>
+    <div class="error" *ngIf="error">{{ error }}</div>
+  </section>
+</div>
