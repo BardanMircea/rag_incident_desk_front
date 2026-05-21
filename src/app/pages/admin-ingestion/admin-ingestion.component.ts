@@ -3,6 +3,7 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DocumentService } from '../../core/document.service';
+import { AuthService } from '../../core/auth.service';
 
 @Component({
   selector: 'app-admin-ingestion',
@@ -13,6 +14,7 @@ import { DocumentService } from '../../core/document.service';
 })
 export class AdminIngestionComponent {
   private documentService = inject(DocumentService);
+  auth = inject(AuthService);
 
   selectedFile: File | null = null;
   loading = false;
