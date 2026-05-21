@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AdminIngestionComponent } from './admin-ingestion.component';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideHttpClient } from '@angular/common/http';
 
 describe('AdminIngestionComponent', () => {
   let component: AdminIngestionComponent;
@@ -8,9 +10,9 @@ describe('AdminIngestionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AdminIngestionComponent]
-    })
-    .compileComponents();
+      imports: [AdminIngestionComponent],
+      providers: [provideHttpClient(), provideHttpClientTesting()],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(AdminIngestionComponent);
     component = fixture.componentInstance;
