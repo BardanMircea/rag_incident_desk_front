@@ -1,27 +1,119 @@
-# RagFront
+# RAG Incident Desk - Frontend (Angular)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.10.
+## Présentation
 
-## Development server
+Application Angular servant d’interface utilisateur pour :
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- l’authentification,
+- l’accès au moteur RAG,
+- l’administration documentaire.
 
-## Code scaffolding
+L’interface communique avec le backend via une API REST sécurisée par JWT.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## Stack technique
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Angular 18
+- TypeScript
+- RxJS
+- Angular Router
+- Angular Guards
+- Nginx
+- Docker
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Architecture frontend
 
-## Running end-to-end tests
+Le frontend utilise une architecture Angular moderne basée sur :
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- composants standalone,
+- services injectables,
+- route guards,
+- stockage JWT local.
 
-## Further help
+### Structure simplifiée
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```text
+core/
+  ├── auth.service.ts
+  ├── auth.guard.ts
+
+pages/
+  ├── login/
+  ├── register/
+  ├── prompt/
+  └── admin/
+```
+
+---
+
+## Gestion des rôles
+
+### USER
+
+Accès :
+
+- interface de prompt,
+- consultation des réponses IA.
+
+### ADMIN
+
+Accès :
+
+- ingestion documentaire,
+- administration documentaire.
+
+Les guards Angular contrôlent la navigation selon le rôle JWT.
+
+---
+
+## Sécurité frontend
+
+### JWT
+
+Le token est stocké dans le Local Storage.
+
+Le frontend :
+
+- ajoute automatiquement le token dans les headers,
+- protège les routes privées,
+- redirige les utilisateurs non authentifiés.
+
+---
+
+## Setup frontend
+
+### Prérequis
+
+- Node.js
+- Angular CLI
+- Docker
+
+### Lancement local
+
+```bash
+npm install
+npm start
+```
+
+Application disponible sur :
+
+```text
+http://localhost:4200
+```
+
+---
+
+## Communication backend
+
+Les appels API transitent via :
+
+```text
+/api/**
+```
+
+et seront reverse-proxyés par Nginx vers le backend Spring Boot.
+
+---
