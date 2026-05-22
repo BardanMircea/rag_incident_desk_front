@@ -1,4 +1,4 @@
-# RAG Incident Desk - Frontend (Angular)
+# RAG Help Desk - Frontend (Angular)
 
 ## Présentation
 
